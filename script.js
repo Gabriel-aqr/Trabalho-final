@@ -14,7 +14,6 @@ async function hashPassword(plainPassword) {
     return hashedPassword;
   } catch (error) {
     console.error('Erro ao gerar hash da senha:', error);
-    // Em um ambiente de produção, você pode relançar um erro genérico.
     throw new Error('Falha no processo de segurança da senha.'); 
   }
 }
