@@ -4,22 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela Inicial</title>
+    <link rel="stylesheet" href="telainicialProfessor.css">
 </head>
 <body>
 
     <P>Professor: </P> <p class="NomeProfessor">(nome do professor)</p>
 
 
-    <!-- lista para alunos -->
+    <!-- tabela para alunos -->
 
     <h3>Alunos</h3>
-    <ul>
-        <li>(aluno 1)</li>
-        <li>(aluno 2)</li>
-        <li>(aluno 3)</li>
-        <li>(aluno 4)</li>
-        <li>(aluno 5)</li>
-    </ul>
+
+    <table>
+        <tr>
+             <th>Nome</th> <th>Média</th> <th>Frequência</th>
+        </tr>
+        <tr>
+            <td>(aluno 1)</td> <td>(media 1)</td> <td>(frequência 1)</td>
+        </tr>
+        <tr>
+            <td>(aluno 2)</td> <td>(media 2)</td> <td>(frequência 2)</td>
+        </tr>
+        <tr>
+            <td>(aluno 3)</td> <td>(media 3)</td> <td>(frequência 3)</td>
+        </tr>
+        <tr>
+            <td>(aluno 4)</td> <td>(media 4)</td> <td>(frequência 4)</td>
+        </tr>
+       
+
+
+    </table>
+
 
     <!-- lista para tarefas lançadas -->
 
@@ -32,7 +48,10 @@
         <li>(tarefa 5)</li>
     </ul>
 
-    <span>
+    
+    <h3>Aulas Atribuidas no Mês de Outubro</h3>
+    
+    <span class="calendario">
         <table>
             <tr>
                 <th >Domingo</th> <th>Segunda</th> 
@@ -75,6 +94,8 @@
         
             </table>
     </span>
+    <br>
+    <button>Adicionar Aluno</button>
 
 
 
