@@ -13,24 +13,29 @@
         <br>
 
         <!-- requisito 1 e 2 (login com nome cpf e senha do professor e do aluno) -->
-        <input type="checkbox" name="tipo" id="tipoAluno" value="aluno">    
+        <input type="checkbox" name="tipo" id="aluno" value="aluno">    
         <label for="aluno">Aluno</label>
-        <input type="checkbox" name="tipo" id="tipoProfessor" value="professor">    
+        <input type="checkbox" name="tipo" id="professor" value="professor">    
         <label for="professor">Professor</label>
         <br>
         <label for="nome">Nome: </label>
         <input type="text" name="nome" id="nome">
         <br>
         <label for="cpf">CPF: </label>
-        <input type="text" name="cpf" id="cpf">
+        <input type="text" name="cpf" id="cpf" required>
         <br>
         <label for="senha">Senha: </label>
+<<<<<<< HEAD
         <input type="password" name="senha" id="senha">
+=======
+        <input type="text" name="senha" id="senha" required>
+>>>>>>> 28a70c5065076066a9f9cf7dc1400f5109160b90
         <br>
-        <button>Logar</button>
+        <button type="submit" id="loginButton">Logar</button>
         <a href="cadastro.html">Criar conta</a>
         <br>
         <a href="cadastro.html">Criar conta como professor</a>
     </span>
+    <script src="script.js"></script>
 </body>
 </html>

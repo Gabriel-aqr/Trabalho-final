@@ -82,4 +82,55 @@ async function runExample() {
   console.log(`Status do Login: ${isWrongCPF && isPasswordCorrect ? 'SUCESSO' : 'FALHA'}`); // Deve ser FALHA
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('loginForm');
+  
+  // Ouve o evento de envio do formulário
+  form.addEventListener('submit', async (event) => {
+      event.preventDefault(); // Impede o envio tradicional (que recarrega a página)
+      
+      // 1. Coleta os dados em texto puro
+      const cpf = document.getElementById('cpf').value;
+      const senha = document.getElementById('senha').value;
+      
+      // Exemplo: Coleta o tipo de usuário selecionado
+      const tipoAluno = document.getElementById('aluno').checked;
+      const tipoProfessor = document.getElementById('professor').checked;
+
+      // Determina o tipo de usuário para enviar ao backend
+      const tipo = tipoAluno ? 'aluno' : (tipoProfessor ? 'professor' : null);
+
+      if (!tipo) {
+          alert('Selecione se é Aluno ou Professor.');
+          return;
+      }
+
+      try {
+          // 2. Envia os dados (CPF e Senha) em texto puro para o servidor
+          const response = await fetch('/api/login', { // Este endpoint deve ser criado no seu Node.js
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ cpf, senha, tipo })
+          });
+
+          // 3. Trata a resposta do servidor
+          if (response.ok) {
+              // Login bem-sucedido
+              const data = await response.json();
+              alert('Login realizado com sucesso! Bem-vindo(a).');
+              // Redireciona o usuário (ex: window.location.href = '/dashboard')
+          } else {
+              // Falha no login (CPF/Senha incorretos ou erro do servidor)
+              const error = await response.json();
+              alert('Falha no Login: ' + (error.message || 'CPF ou Senha inválidos.'));
+          }
+      } catch (error) {
+          console.error('Erro na conexão:', error);
+          alert('Erro ao tentar conectar com o servidor.');
+      }
+  });
+});
+
 runExample();
