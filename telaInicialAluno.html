@@ -7,10 +7,16 @@
     <link rel="stylesheet" href="telaInicialAluno.css">
 </head>
 <body>
-    <P>Aluno: </P> <p class="NomeAluno">(nome do aluno)</p>
+    <header>
+        <P>Aluno: </P> <p class="NomeAluno">(nome do aluno)</p>
+    </header>
+    
+    <span class="centro"></span>
+
     <!-- lista para tarefas pendentes -->
-    <span>
-        <h3>Tarefas Pendentes</h3>
+    <h3>Tarefas Pendentes</h3>
+    <span class="tarefas">
+
         <ul>
             <li>(tarefa 1)</li>
             <li>(tarefa 2)</li>
@@ -20,8 +26,9 @@
         </ul>
     </span>
     <!-- tabela para aulas atribuidas -->
+    <h3>Aulas Atribuidas no Mês de Outubro</h3>
     <span class="calendario">
-        <h3>Aulas Atribuidas no Mês de Outubro</h3>
+        
         <table>
             <tr>
                 <th >Domingo</th> <th>Segunda</th> 
@@ -57,12 +64,18 @@
                 <td class="NdiaUtil">29</td> <td>30</td>
             </tr>
             </table>
+            <p class="DescricaoAula"> (Descrição do que acontece no dia selecionado)</p>
     </span>
 
-    <p class="DescricaoAula"> (Descrição do que acontece no dia selecionado)</p>
-
-    <!-- status aprovação -->
-    <P>Situação do aluno no curso: </P> <p class="situacaoAluno">(aprovado/em processo)</p>
     
+    <spa class="situacaoAluno">
+        <!-- status aprovação -->
+        <P>Situação do aluno no curso: </P> <p class="situacaoAluno">(aprovado/em processo)</p>
+        <br>
+        <P>Frequência do aluno no curso: </P> <p class="frequenciaAluno">(frequencia)</p>
+        <br>
+        <P>Media do aluno no curso: </P> <p class="mediaAluno">(media)</p>
+
+    </span>
 </body>
 </html>

@@ -12,17 +12,33 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    flex-direction: column;
 }
 
 .NdiaUtil {
-    background-color: rgb(194, 194, 194);
+    background-color: rgba(0, 0, 0, 0.103);
 }
-
 
 table {
     border: 1px black solid;
+    margin-right: 36px;
 }
     
 th {
     border: 1px black solid;
+}
+
+span {
+    display: flex;
+    margin-bottom: 100px;
+    margin-top: 25px;
+}
+
+.tarefas {
+    flex-direction: column;
+}
+
+.calendario {
+    flex-direction: row;
+    
 }
