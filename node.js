@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const { compareData } = require('./auth-functions');
+const { compareData } = require('./authService.js');
 
 // 1. Importa o pool de conexões MySQL
 const dbPool = require('./db');// O pool que você criou
