@@ -2,8 +2,24 @@ const express = require('express');
 const app = express();
 const { compareData } = require('./auth-functions');
 
+// 1. Importa o pool de conexões MySQL
+const dbPool = require('./db');// O pool que você criou
+
 // Middleware para processar JSON no corpo da requisição
-app.use(express.json()); 
+app.use(express.json());
+
+// Função de exemplo para buscar o usuário (simulando a função db.encontrarUsuarioPorCPF)
+// **Você deve implementar essa função usando o pool!**
+async function encontrarUsuarioPorCPF(cpf, tipo) {
+    // Atenção à SEGURANÇA: Usamos Prepared Statements (o `?`) para evitar SQL Injection
+    const [rows] = await dbPool.execute(
+        'SELECT hashedCPF, hashedPassword, id FROM usuarios WHERE cpf_puro = ? AND tipo = ?',
+        [cpf, tipo] // Os valores são passados como um array e substituem os `?`
+    );
+
+    // Se encontrou, retorna o primeiro usuário, senão retorna null
+    return rows.length > 0 ? rows[0] : null;
+}
 
 // Endpoint para o processo de Login
 app.post('/api/login', async (req, res) => {
@@ -19,7 +35,7 @@ app.post('/api/login', async (req, res) => {
         // 2. Busca o usuário no DB pelo CPF e pelo tipo (aluno/professor)
  
         // Aqui, você deve buscar o usuário pelo CPF para pegar o HASH SALVO
-        const user = await db.encontrarUsuarioPorCPF(cpf, tipo); 
+        const user = await encontrarUsuarioPorCPF(cpf, tipo); 
 
         if (!user) {
             // É uma boa prática não informar se o CPF ou a senha estão incorretos para evitar enumerar usuários
